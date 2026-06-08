@@ -1,11 +1,3 @@
-from pathlib import Path
-
-project = Path("fine-tuning-ticket-classifier")
-project.mkdir(parents=True, exist_ok=True)
-
-train_file = project / "train.py"
-
-train_file.write_text(r'''
 from openai import OpenAI
 from dotenv import load_dotenv
 import time
@@ -77,6 +69,3 @@ if __name__ == "__main__":
     )
 
     final_job = monitor_job(job_id)
-'''.strip(), encoding="utf-8")
-
-print("train.py created successfully at:", train_file.resolve())
